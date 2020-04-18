@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from glarex.co/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Apr 2020 01:14:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<meta name="author" content="TEAMHORUS">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta charset="UTF-8">
+	<title>Glare</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.css">
+
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/nice-select.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main_1.css">
+	<link rel="stylesheet" href="css/custom_2.css">
+</head>
+<body>
+	<header id="header" id="home">
+		<div class="container nav-mod">
+			<div class="row align-items-center justify-content-between d-flex">
+				<div id="logo">
+					<a href="index-2.html"><img src="img/logo.png" alt="" title="" /></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+
+							<li><a href="https://twitter.com/GlareDeFi" target='_blank' rel='noopener noreferrer'><i class="fa fa-twitter fa-2x"></i></a></li>
+							<li><a href="https://t.me/GlareCrypto" target='_blank' rel='noopener noreferrer'><i class="fa fa-telegram fa-2x"></i></a></li>
+							<li><a href="https://bitcointalk.org/index.php?topic=5237616" target='_blank' rel='noopener noreferrer'><i class="fa fa-btc fa-2x"></i></a></li>
+
+
+						<li><a class="genric-btn btn-connect primary-border medium radius" id="connectbtn" class="btn" onclick="connectWallet()">Connect wallet</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<div id="loader-wrapper">
+		<div id="loadingText" class="text-center">
+			<h4 style="color:#eee;">Loading...</h4>
+			<h5>Javascipt must be enabled</h5>
+		</div>
+		<div id="loader"></div>
+
+
+		<div class="loader-section section-left"></div>
+
+					<div class="loader-section section-right"></div>
+
+	</div>
+<div id="content">
+	<div class="modal fade" id="warnModal" tabindex="-1" role="dialog" aria-labelledby="warnModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="warnModalTitle">Warning</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					You are attempting to close a CD contract early. By closing the cotract early you will be charged a 10% fee, this fee will stay in the pool. Consider waiting until the contract expires.
+				</div>
+				<div class="modal-footer">
+					<a id="warnApprove" class="genric-btn danger radius" data-dismiss="modal" onclick="">I Understand, Close the Contract</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="connectModal" tabindex="-1" role="dialog" aria-labelledby="connectModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="connectModalTitle">Connect</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					You must have MetaMask, Trust Wallet, or other compatible dApp browser to buy tokens, recieve airdrops, or manage your CD contracts.
+					You can only view global statistics and create refer links without connecting.
+					<br>
+					If you are seeing this message you either are not using a compatible browser/extension, it is disabled, you are not logged in, or refusing to connect.
+					If you still have issues please contact us on
+					<a href="https://twitter.com/GlareDeFi" target='_blank' rel='noopener noreferrer'>twitter</a>,
+					<a href="https://t.me/GlareCrypto" target='_blank' rel='noopener noreferrer'>telegram</a>, or
+					<a href="https://bitcointalk.org/index.php?topic=5237616" target='_blank' rel='noopener noreferrer'>BitCoinTalk</a>
+
+					</optgroup>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="genric-btn primary-border radius" data-dismiss="modal">Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="approveModalTitle">Please Approve</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Please approve the Glare CD contract to open CD's. You will only need to do this once. If you have already approved please wait until the transaction is confirmed.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="genric-btn primary-border radius" data-dismiss="modal">Okay</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="welcomModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="welcomModalTitle">Welcome to GLare!</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Welcome to glare
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="genric-btn primary-border radius" data-dismiss="modal">Let's Go!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="generic-banner relative pt-5 mt-5 pb-2">
+		<div class="container">
+			<div class="row height align-items-center justify-content-center">
+				<div class="col-lg-10">
+					<div class="generic-banner-content">
+						<img src="img/logo_250x250.png" class="banner-logo">
+						<h1 class="text-main font-weight-bold display-2">Glare</h1>
+						<h4 class="">DAO CD's backed by Ethereum</h4>
+						<h4 class="">More Tokens = Higher Price</h4>
+						<h4 class="">More Buys = More Interest Earned</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="main-wrapper">
+
+
+		<section>
+			<div class="container">
+				<div class="mb-4">
+					<h2 class="text-center display-4">1 GLX = <span id="glxToEth"></span> ETH</h1>
+					</div>
+					<div class="row mb-4">
+						<div class="col-12 col-md-1"></div>
+						<div class="col-12 col-md-5">
+							<h1 class="text-center text-nowrap">Total Supply</h1>
+							<h1 class="text-center text-nowrap"><span id="tsup"></span> GLX</h1>
+						</div>
+
+						<div class="col-12 col-md-5">
+							<h1 class="text-center text-nowrap">Total Backing</h1>
+							<h1 class="text-center text-nowrap"><span id="gbal"></span>ETH</h1>
+						</div>
+						<div class="col-12 col-md-1"></div>
+					</div>
+				</div>
+
+				<div class="container pt-2">
+					<div class="row pb-2">
+						<div class="col-12 col-md-6">
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy"
+									aria-selected="true">Buy GLX</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell"
+									aria-selected="false">Sell GLX</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="airdrop-tab" data-toggle="tab" href="#airdrop" role="tab" aria-controls="airdrop"
+									aria-selected="false">Airdrop</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="refer-tab" data-toggle="tab" href="#refer" role="tab" aria-controls="refer"
+									aria-selected="false">Refer</a>
+								</li>
+							</ul>
+							<div class="tab-content border rounded" id="myTabContent">
+								<div class="tab-pane fade show active" id="buy" role="tabpanel" aria-labelledby="buy-tab">
+									<div class="container py-3">
+										<div class="d-flex flex-row justify-content-between">
+											<p class="lead">Create Tokens</p>
+											<p class="text-right"><span class="lnr lnr-question-circle lnr-question-bigger " data-toggle="tooltip" data-placement="auto" data-html="true"
+												title=
+												"
+												<div class='text-left m-4'>
+													<b>GLX is fully backed by Ethereum</b>
+													<br><br>
+													This token is fully autonomous. As tokens are bought and total supply increases price
+													increases, and as tokens are burned the price decreases.
+													<br><br>
+													The ethereum backing the token can only be accessed by the contract itself.
+													Meaning your funds are always safe and the token maintains 100% liquidity.
+													<br><br>
+													All tokens buys are taxed 10%, these taxes are distributed to referals and CD contract holders.
+													Once you have purchased GLX you can open CD contracts and earn interest!
+													<br>
+												</div>
+												"
+
+												></span></p>
+											</div>
+
+											<p>Mint tokens directly to your wallet. Every token created is backed by ETH.</p>
+
+											<div class="input-group mb-3">
+												<div class="input-group-prepend">
+													<span class="input-group-text">
+														<span class="lnr lnr-funnel"></span>
+													</span>
+												</div>
+												<input type="text" id="ethToSpend" class="form-control text-center" onchange="updateBuyToken()" placeholder="0.01 ETH">
+												<div class="input-group-append">
+													<span class="input-group-text" id="tokenQuotation"> =&nbsp<span id="outputGlare">0</span>&nbspGLX
+												</span>
+											</div>
+										</div>
+										<p>Note: 10% of minted tokens will be distributed to CD contracts and/or referalnodes.</p>
+										<div class="text-center text-nowrap mb-3">
+											<a class="genric-btn primary radius" onclick="buyTokens()">Mint Tokens</a>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="sell" role="tabpanel" aria-labelledby="sell-tab">
+									<div class="container py-3">
+
+										<div class="d-flex flex-row justify-content-between">
+											<p class="lead">Sell Tokens</p>
+										</div>
+
+										<p>Sell Glare tokens for Ethereum at any time.</p>
+
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text">
+													<span class="lnr lnr-funnel"></span>
+												</span>
+												<button class="btn btn-outline-secondary" type="button" onclick="maxSell()">100%</button>
+											</div>
+											<input type="text" id="glxToSpend" class="form-control text-center" onchange="updateSellToken()" placeholder="1 GLX">
+											<div class="input-group-append">
+												<span class="input-group-text" id="ethQuotation"> =&nbsp<span id="outputEthereum">0</span>&nbspETH</span>
+											</div>
+										</div>
+										<p>Note: You cannot sell Glare curently in CD contracts. Close the contracts before attempting to sell.</p>
+										<div class="text-center text-nowrap mb-3">
+											<a class="genric-btn primary radius" onclick="sellTokens()">Sell Tokens</a>
+										</div>
+
+									</div>
+								</div>
+								<div class="tab-pane fade" id="airdrop" role="tabpanel" aria-labelledby="airdrop-tab">
+									<div class="container py-3">
+
+										<div class="d-flex flex-row justify-content-between">
+											<p class="lead">Claim Airdrop!</p>
+										</div>
+										<p>There are a limited 3000 airdrops of .1 GLX for the glare launch! Claim now!(Limit 1 airdrop per address)</p>
+										<div class="text-center text-nowrap my-3">
+											<a class="genric-btn primary radius" onclick="claimAirdrop()">Claim Airdrop</a>
+										</div>
+										<p>Once you claim your airdrop share on twitter to earn 25% referal commission!</p>
+										<div class="text-center">
+											<a id="tweetRefAirdrop" href="https://twitter.com/intent/tweet?text=Check+out+the+newest+Ethereum+DeFi+token+Glare%21+A+token+fully+backed+by+Ethereum+with+100%25+liquidity.+Visit+the+link+below+to+claim+the+limited+airdrop+and+buy+tokens%21+%23airdrop+%23crypto+%23glare+%24glx+https%3A%2F%2Fglarex.co" target="_blank" class="sc-btn sc--flat sc--twitter">
+												<span class="sc-icon">
+													<svg viewBox="0 0 33 33" width="25" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M 32,6.076c-1.177,0.522-2.443,0.875-3.771,1.034c 1.355-0.813, 2.396-2.099, 2.887-3.632 c-1.269,0.752-2.674,1.299-4.169,1.593c-1.198-1.276-2.904-2.073-4.792-2.073c-3.626,0-6.565,2.939-6.565,6.565 c0,0.515, 0.058,1.016, 0.17,1.496c-5.456-0.274-10.294-2.888-13.532-6.86c-0.565,0.97-0.889,2.097-0.889,3.301 c0,2.278, 1.159,4.287, 2.921,5.465c-1.076-0.034-2.088-0.329-2.974-0.821c-0.001,0.027-0.001,0.055-0.001,0.083 c0,3.181, 2.263,5.834, 5.266,6.438c-0.551,0.15-1.131,0.23-1.73,0.23c-0.423,0-0.834-0.041-1.235-0.118 c 0.836,2.608, 3.26,4.506, 6.133,4.559c-2.247,1.761-5.078,2.81-8.154,2.81c-0.53,0-1.052-0.031-1.566-0.092 c 2.905,1.863, 6.356,2.95, 10.064,2.95c 12.076,0, 18.679-10.004, 18.679-18.68c0-0.285-0.006-0.568-0.019-0.849 C 30.007,8.548, 31.12,7.392, 32,6.076z"></path></g></svg>
+												</span>
+												<span class="sc-text">
+													Share on Twitter
+												</span>
+											</a>
+										</div>
+
+									</div>
+								</div>
+								<div class="tab-pane fade show" id="refer" role="tabpanel" aria-labelledby="refer-tab">
+									<div class="container py-3">
+										<div class="d-flex flex-row justify-content-between">
+											<p class="lead">Refer Buyers for 25%</p>
+											<p class="text-right"><span class="lnr lnr-question-circle lnr-question-bigger " data-toggle="tooltip" data-placement="auto" data-html="true"
+												title=
+												"
+												<div class='text-left m-4'>
+													<b>Shill GLX and get rewarded!</b>
+													<br><br>
+													Share your referral URL on twitter, telegram, facebook, anywhere..
+													Once somone has used your referral link all of their future GLX purchases will earn you 25% of taxed GLX.
+													<br><br>
+													All referral commission will be directly minted to your wallet. No need to whithdraw tokens.
+													<br>
+												</div>
+												"
+												></span></p>
+											</div>
+											<p>Referrals to buyers earn 25% commission in GLX. Are you an influencer? <a href="https://twitter.com/GlareDeFi" target='_blank' rel='noopener noreferrer'>Contact us</a> to gain masternode status for 50% referral commission!</p>
+											<div class="input-group pt-2 pb-3">
+												<input type="text" id="referralAddress" class="form-control text-center" onchange="updateRef()" placeholder="Your Address">
+												<div class="input-group-append">
+													<button class="btn btn-outline-secondary" type="button" onclick="detectAddress()">Detect</button>
+												</div>
+											</div>
+											<div class="input-group pb-4">
+												<input type="text" id="referralURL" class="form-control text-center" disabled=true placeholder="Referral URL">
+												<div class="input-group-append">
+													<button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard('referralURL')">Copy</button>
+												</div>
+											</div>
+											<div class="text-center">
+												<a id="tweetRef" href="https://twitter.com/intent/tweet?text=Check+out+the+newest+Ethereum+DeFi+token+Glare%21+A+token+fully+backed+by+Ethereum+with+100%25+liquidity.+Visit+the+link+below+to+claim+the+limited+airdrop+and+buy+tokens%21+%23airdrop+%23crypto+%23glare+%24glx+https%3A%2F%2Fglarex.co" target="_blank" class="sc-btn sc--flat sc--twitter">
+													<span class="sc-icon">
+														<svg viewBox="0 0 33 33" width="25" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M 32,6.076c-1.177,0.522-2.443,0.875-3.771,1.034c 1.355-0.813, 2.396-2.099, 2.887-3.632 c-1.269,0.752-2.674,1.299-4.169,1.593c-1.198-1.276-2.904-2.073-4.792-2.073c-3.626,0-6.565,2.939-6.565,6.565 c0,0.515, 0.058,1.016, 0.17,1.496c-5.456-0.274-10.294-2.888-13.532-6.86c-0.565,0.97-0.889,2.097-0.889,3.301 c0,2.278, 1.159,4.287, 2.921,5.465c-1.076-0.034-2.088-0.329-2.974-0.821c-0.001,0.027-0.001,0.055-0.001,0.083 c0,3.181, 2.263,5.834, 5.266,6.438c-0.551,0.15-1.131,0.23-1.73,0.23c-0.423,0-0.834-0.041-1.235-0.118 c 0.836,2.608, 3.26,4.506, 6.133,4.559c-2.247,1.761-5.078,2.81-8.154,2.81c-0.53,0-1.052-0.031-1.566-0.092 c 2.905,1.863, 6.356,2.95, 10.064,2.95c 12.076,0, 18.679-10.004, 18.679-18.68c0-0.285-0.006-0.568-0.019-0.849 C 30.007,8.548, 31.12,7.392, 32,6.076z"></path></g></svg>
+													</span>
+													<span class="sc-text">
+														Share on Twitter
+													</span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-12 col-md-6">
+								<ul class="nav nav-tabs" id="walletTab" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link active" id="wallet-tab" data-toggle="tab" href="#wallet" role="tab" aria-controls="Wallet"
+										aria-selected="true">Wallet</a>
+									</li>
+								</ul>
+								<div class="tab-content border" id="walletTabContent">
+									<div class="tab-pane fade show active" id="wallet" role="tabpanel" aria-labelledby="wallet-tab">
+										<div class="container py-3">
+											<div class="d-flex flex-row justify-content-between">
+												<h2>Balance</h2>
+												<h2 class="text-right"><span id="displayGlareBalance">0</span>&nbspGLX</h2>
+											</div>
+											<h2 class="text-right">=&nbsp<span id="displayGlareEth">0</span>&nbspETH</h2>
+
+											<h4>CD Contracts:</h4>
+
+											<table id="accountCDTable"class="table table-sm" data-height="200">
+												<thead>
+													<tr>
+														<th scope="col" data-field="size">Size</th>
+														<th scope="col" data-field="term">Term</th>
+														<th scope="col" data-field="value">Value</th>
+														<th scope="col" data-field="closeTime">Closes</th>
+														<th scope="col" data-field="action">Action</th>
+													</tr>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="container">
+						<div class="row mb-4">
+							<div class="col-12 col-md-6">
+								<ul class="nav nav-tabs" id="openCDTab" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link active" id="openCD-tab" data-toggle="tab" href="#openCD" role="tab" aria-controls="openCD"
+										aria-selected="true">Open CD</a>
+									</li>
+								</ul>
+								<div class="tab-content border" id="openCDTabContent">
+									<div class="tab-pane fade show active" id="openCD" role="tabpanel" aria-labelledby="openCD-tab">
+										<div class="container py-3">
+
+
+											<div class="d-flex flex-row justify-content-between">
+												<p class="lead">Create GLX CD</p>
+												<p class="text-right"><span class="lnr lnr-question-circle lnr-question-bigger " data-toggle="tooltip" data-placement="auto" data-html="true"
+													title=
+													"
+													<div class='text-left m-4'>
+														<b>Earn even more GLX</b>
+														<br><br>
+														Opening CD's contracts will allow you to earn dividends on all GLX purchases. Shared equally with other CD contract holders.
+														<br><br>
+														You do not need to hold a lot of GLX to earn high dividends,
+														long term CD contacts with little GLX will earn as much as short term contarcts with high GLX.
+														<br>
+														Shares are calculated on the basis of GLX days:
+														<br>
+														Shares = GLX in CD x Contract length in days
+														<br><br>
+														CD contracts can be closed from the wallet tab. You may close CD contracts early but you will lose all dividends
+														and be charged a 10% fee on the initial GLX entered into the contract.
+														<br>
+													</div>
+													"
+													></span></p>
+												</div>
+												<p>Earn dividends on GLX purchases (Contracts must be a minimum of .1 GLX and have a durration between 1 and 365 days.)</p>
+
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">
+															<span class="lnr lnr-lock"></span>
+														</span>
+													</div>
+													<input type="text" id="glxToLock" class="form-control text-center" value="1" onchange="updateCDDays()">
+													<div class="input-group-append">
+														<span class="input-group-text">GLX for</span>
+													</div>
+												</div>
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">
+														<span class="input-group-text">
+															<span class="lnr lnr-calendar-full"></span>
+														</span>
+													</div>
+													<input type="text" id="daysToLock" class="form-control text-center" value="1" onchange="updateCDDays()">
+													<div class="input-group-append">
+														<span class="input-group-text">Days =&nbsp<span id="displayGLXDays">1</span>&nbspGLXday</span>
+													</div>
+												</div>
+
+												<p>Note: Tokens unlocked before contract expiration will lose interest dividends and be charged a 10% fee.</p>
+												<div class="text-center text-nowrap">
+													<a class="genric-btn primary radius" onclick="openCD()">Create CD</a>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-12 col-md-6">
+									<ul class="nav nav-tabs" id="globalCDTab" role="tablist">
+										<li class="nav-item">
+											<a class="nav-link active" id="globalCD-tab" data-toggle="tab" href="#globalCD" role="tab" aria-controls="globalCD"
+											aria-selected="true">Global CD Stats</a>
+										</li>
+									</ul>
+									<div class="tab-content border" id="globalCDTabContent">
+										<div class="tab-pane fade show active" id="globalCD" role="tabpanel" aria-labelledby="globalCD-tab">
+											<div class="container py-4">
+												<div class="d-flex flex-row justify-content-between">
+													<h2>Glare in CD's</h2>
+													<h2 class="text-right"><span id="glareInCD">0</span>&nbspGLX</h2>
+												</div>
+												<br>
+												<div class="d-flex flex-row justify-content-between">
+													<h2>GLXday Value</h2>
+													<h2 class="text-right"><span id="cdReturn">0</span>&nbspGLX</h2>
+												</div>
+												<br>
+												<div class="d-flex flex-row justify-content-between">
+													<h2>Total GLX days</h2>
+													<h2 class="text-right"><span id="glareTime">0</span></h2>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+
+						</div>
+
+
+
+
+					</section>
+
+					<footer class="footer-area">
+						<div class="container">
+							<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
+								<div class="footer-social d-flex align-items-center mb-3">
+									<a href="https://twitter.com/GlareDeFi" target='_blank' rel='noopener noreferrer'><i class="fa fa-twitter fa-2x"></i></a>
+									<a href="https://t.me/GlareCrypto" target='_blank' rel='noopener noreferrer'><i class="fa fa-telegram fa-2x"></i></a>
+									<a href="https://bitcointalk.org/index.php?topic=5237616" target='_blank' rel='noopener noreferrer'><i class="fa fa-btc fa-2x"></i></a>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+					<script src="js/vendor/jquery-2.2.4.min.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.js"></script>
+					<script src="js/vendor/bootstrap.min.js"></script>
+					<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+					<script src="js/easing.min.js"></script>
+					<script src="js/hoverIntent.js"></script>
+					<script src="js/superfish.min.js"></script>
+					<script src="js/jquery.ajaxchimp.min.js"></script>
+					<script src="js/jquery.magnific-popup.min.js"></script>
+					<script src="js/owl.carousel.min.js"></script>
+					<script src="js/jquery.sticky.js"></script>
+					<script src="js/jquery.nice-select.min.js"></script>
+					<script src="js/parallax.min.js"></script>
+					<script src="js/waypoints.min.js"></script>
+					<script src="js/jquery.counterup.min.js"></script>
+					<script src="js/mail-script.js"></script>
+					<script src="js/main.js"></script>
+					<script src="js/web3.js"></script>
+					<script src="js/custom_4.js"></script>
+				</body>
+				
+<!-- Mirrored from glarex.co/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Apr 2020 01:14:57 GMT -->
+</html>

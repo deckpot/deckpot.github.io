@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="favicon.ico">
+        <meta name="author" content="TEAMHORUS">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta charset="UTF-8">
+        <title>Deck</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.css">
+        <link rel="stylesheet" href="css/linearicons.css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/nice-select.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/main_1.css">
+        <link rel="stylesheet" href="css/custom_2.css">
+        <link rel="stylesheet" href="css/new.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="img/logo.png" width="70px">
+                    <span class="font-weight-bold">DECKHOLDER</span>
+                </div>
+                <div class="col" style="padding:10px" align="right">
+                    <img src="img/telegram.png" width="40px">
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Get Started</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div align="center">
+                            <h5>
+                                Check referral </h5>
+                            <br>
+                            <p>
+                                Enter Sponsor Address or Continue without.  </p>
+                            <input type="checkbox" id="noref" name="" value="">
+                            <label for=""> Don't Have Referral</label>
+                            <br>
+                            <span></span>
+                            <input type="text" id="Address" class="form-control text-center" placeholder="Your Referral Address" style="width:70%">
+                            <span id="check">?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="claimAirdrop()">Claim Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top:2%;height:40vh">
+                <div class="col-7" style="margin:auto">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="buy-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="true">Recruitment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="sell-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="false">Manage Token</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="refer-tab" data-toggle="tab" href="#refer" role="tab" aria-controls="refer" aria-selected="false">Refer & Be Boss</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border rounded" id="myTabContent">
+                        <div class="tab-pane fade show active" id="buy" role="tabpanel" aria-labelledby="buy-tab">
+                            <div class="container py-3 " style="border:1px solid lightgrey;text-align:center">
+                                <div id="airdrop" style="width:80%;margin:auto;box-shadow:2px 10px 8px 2px grey ;padding:20px">
+                                    <img src="img/oil.png" width="80%">
+                                    <br />
+                                    <b class="font-weight-bold">Welcome in the Deck industry!</b>
+                                    <br> Claim your 
+                                    <b>first Pot holder, recieve tron and spend it </b> as you please!
+                                    <p>Helps us open more pot nodes. Every Pot created is backed by Tron.</p>  This is the first ever pot dripping game with rewards on the Tron Blockchain.
+                                    <br> Start earning and play for free today!
+                                    <br>
+                                    <a class="genric-btn success radius" style="width:100%" data-toggle="modal" data-target="#exampleModal">Start Playing</a>
+                                </div>
+                                <br />
+                                <h7>
+                                    CLAIM POT AND ENJOY UNLIMITED DRIPPING
+                                    <br>
+                                    <span>Contract : <span id="contractBalance">?</span></span>
+                                </h7>
+                                <div style="margin-top:30px;padding:10px;background:#c9c8c3;position:relative">
+                                    <div class="float0" id="ft0">
+                                        <div style="color:white;background:black;width:70%;height:100px;margin:auto;margin-top:10px">
+                                            AMATEUR
+                                            <br>
+                                            3 TRX DAILY
+                                        </div>
+                                    </div>
+                                    <span style="font-weight:bold"> 1. Amatuer (<span id="unit0"> ? </span>)</span>
+                                    <br> 4 TRX / 1 Day
+                                    <br>
+                                    <span>Minting : <span>0</span> TRX</span>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <span class="lnr lnr-funnel"></span> </span>
+                                        </div>
+                                        <input type="text" id="in0" class="form-control text-center" placeholder="Number Of Pot">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text primary" onclick="buy0()" id="" style="background:#ff7c47"> &nbsp<span id="pirce0">50</span>&nbspTRON </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:30px;padding:10px;background:#c9c8c3;position:relative">
+                                    <div class="float0" id="ft1">
+                                        <div style="color:white;background:black;width:70%;height:100px;margin:auto;margin-top:10px">
+                                            JUNIOR
+                                            <br>
+                                            9 TRX DAILY
+                                        </div>
+                                    </div>
+                                    <span style="font-weight:bold"> 2. Junior (<span id="unit1"> ? </span>)</span>
+                                    <br> 9 TRX / 1 Day
+                                    <br>
+                                    <span>Mintin : <span>0</span> TRX</span>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <span class="lnr lnr-funnel"></span> </span>
+                                        </div>
+                                        <input type="text" id="in1" class="form-control text-center" placeholder="Number Of Pot">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text primary" id="" onclick="buy1()" style="background:#ff7c47"> &nbsp<span id="price1">100</span>&nbspTRON </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:30px;padding:10px;background:#c9c8c3;position:relative">
+                                    <div class="float0" id="ft2">
+                                        <div style="color:white;background:black;width:70%;height:100px;margin:auto;margin-top:10px">
+                                            SENIOR
+                                            <br>
+                                            52 TRX DAILY
+                                        </div>
+                                    </div>
+                                    <span style="font-weight:bold"> 3. Senior (<span id="unit2"> ? </span>)</span>
+                                    <br> 52 TRX / 1 Day
+                                    <br>
+                                    <span>Minting : <span>0</span> TRX</span>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <span class="lnr lnr-funnel"></span> </span>
+                                        </div>
+                                        <input type="text" id="in2" class="form-control text-center" placeholder="Number Of Pot">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text primary" onclick="buy2()" style="background:#ff7c47"> &nbsp<span id="price2">500</span>&nbspTRON </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:30px;padding:10px;background:#c9c8c3;position:relative">
+                                    <div class="float0" id="ft3">
+                                        <div style="color:white;background:black;width:70%;height:100px;margin:auto;margin-top:10px">
+                                            PRO
+                                            <br>
+                                            110 TRX DAILY
+                                        </div>
+                                    </div>
+                                    <span style="font-weight:bold"> 4. Professional  (<span id="unit3"> ? </span>)</span>
+                                    <br> 110 TRX / 1 Day
+                                    <br>
+                                    <span>Minting : <span>0</span> TRX</span>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <span class="lnr lnr-funnel"></span> </span>
+                                        </div>
+                                        <input type="text" id="in3" class="form-control text-center" placeholder="Number Of Pot">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text primary" onclick="buy3()" style="background:#ff7c47"> &nbsp<span id="price3">1000</span>&nbspTRON </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:30px;padding:10px;background:#c9c8c3;position:relative">
+                                    <div class="float0" id="ft4">
+                                        <div style="color:white;background:black;width:70%;height:100px;margin:auto;margin-top:10px">
+                                            SPECIALIST
+                                            <br>
+                                            550 TRX DAILY 
+
+                                            <br>
+                                            Claim with 0 Tron
+                                        </div>
+                                    </div>
+                                    <span style="font-weight:bold"> 5. Specialist (<span id="unit4"> ? </span>)</span>
+                                    <br> 350 TRX / 1 Day
+                                    <br>
+                                    <span>Minting : <span>0</span> TRX</span>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <span class="lnr lnr-funnel"></span> </span>
+                                        </div>
+                                        <input type="text" id="in4" class="form-control text-center" placeholder="Number Of Pot">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text primary" onclick="buy4()" style="background:#ff7c47"> &nbsp<span id="price4">2 </span>&nbspDECK </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:30px;padding:10px;background:#c9c8c3;position:relative"> 
+                                    <div class="float0" id="ft6">
+                                        <div style="color:white;background:black;width:70%;height:100px;margin:auto;margin-top:10px">
+                                            MASTER
+                                            <br>
+                                            700 TRX DAILY
+
+                                            <br>
+                                            Claim with 0 Tron
+                                        </div>
+                                    </div>                                     
+                                    <span style="font-weight:bold"> 5. Masters (<span id="unit5"> ? </span>)</span> 
+                                    <br> 700 TRX / 1 Day 
+                                    <br> 
+                                    <span>Minting : <span>0</span> TRX</span> 
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <span class="lnr lnr-funnel"></span> </span>
+                                        </div>
+                                        <input type="text" id="in5" class="form-control text-center" placeholder="Number Of Pot">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text primary" onclick="buy5()" style="background:#ff7c47"> &nbsp<span id="price5">3</span>&nbspDECK </span>
+                                        </div>
+                                    </div>                                     
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="sell" role="tabpanel" aria-labelledby="sell-tab">
+                            <div class="container py-3" style="border:1px solid lightgrey">
+                                <div style="border:1px solid lightgrey;padding:20px">
+                                    <p class="lead">Stake Deck</p>
+                                    <p>
+                                       15% IN 24 hrs </p>
+                                    <div class="row">
+                                        <div class="col">
+                                            Balance : 
+                                            <span id="bal2">?</span> TRX
+                                        </div>
+                                        <div class="col" align="right">
+                                            Staked : 
+                                            <span id="stakebal">?</span> TRX
+                                        </div>
+                                    </div>
+                                    <span>Min : 10 TRX</span>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend"> 
+                                            <span class="input-group-text"> <span class="lnr lnr-funnel"></span> </span> 
+                                            <button class="btn btn-outline-secondary" type="button" onclick="StakeToken()">STAKE NOW</button>                                             
+                                        </div>
+                                        <input type="text" id="stake" class="form-control text-center" onchange="updateSellToken()" placeholder="AMOUNT TO STAKE">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" style="background:brown;color:white" onclick=" UnStakeToken()">UNSTAKE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="airdrop" role="tabpanel" aria-labelledby="airdrop-tab">
+                            <div class="container py-3" style="border:1px solid lightgrey">
+                                <div class="d-flex flex-row justify-content-between">
+                                    <p class="lead">Be the Boss!</p>
+                                </div>
+                                <p>Every 24 Hour Top Leatherboard Player will claim 300 trx Instantly to his Wallet. Generete more and be the boss</p>
+                                <div class="text-center text-nowrap my-3">
+                                    <a class="genric-btn primary radius" onclick="claimAirdrop()">Claim Airdrop</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="refer" role="tabpanel" aria-labelledby="refer-tab">
+                            <div class="container py-3" style="border:1px solid lightgrey">
+                                <div class="d-flex flex-row justify-content-between">
+                                    <p class="lead">Refer Buyers for 25%</p>
+                                    <p class="text-right"><span class="lnr lnr-question-circle lnr-question-bigger " data-toggle="tooltip" data-placement="auto" data-html="true" title="
+												<div class='text-left m-4' <b shill glx and get rewarded!< b <br <br share your referral url on twitter, telegram, facebook, anywhere.. once somone has used your referral link all of their future glx purchases will earn you 25% of taxed glx. <br <br all referral commission will be directly minted to your wallet. no need to whithdraw tokens. <br < div "></span></p>
+                                </div>
+                                <p>Referrals to buyers earn 25% commission. Are you an influencer?  </p>
+                                <div class="input-group pt-2 pb-3">
+                                    <input type="text" id="referralAddress" class="form-control text-center" onchange="updateRef()" placeholder="Your Address">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" onclick="detectAddress()">Detect</button>
+                                    </div>
+                                </div>
+                                <div class="input-group pb-4">
+                                    <input type="text" id="referralURL" class="form-control text-center" disabled="true" placeholder="Referral URL">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard('referralURL')">Copy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foot" style="background:black;margin-top:60px;border-top:1px solid lightgrey">
+                <div style="margin:auto;color:white">
+                    <div class="row">
+                        <div class="col"> 
+                            <span style="color:magenta">DECK BALANCE : <span id="deck" style="color:cyan">?</span></span> &nbsp&nbsp|
+                            TRON BALANCE : 
+                            <span id="bal">?</span> TRX &nbsp 
+                            <button class="btn primary" style="background:brown;color:white;font-weight:bold;width:200px" onclick="withdraw()">
+                                WITHDRAW
+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="foot" style="margin-top:60px;border-top:1px solid lightgrey">
+                <br>
+                <div class="row" style="width:70%;margin:auto">
+                    <div class="col">
+                        English
+</div>
+                    <div class="col">
+                        <b style="font-weight:bold">About</b> 
+                        <br>
+                        <br>
+                        Contract 
+                        <br>
+                        <a href="https://tronscan.org/#/contract/TQjvxCn15hdTyPRv4ikudXvASBosFBfyYf">Souce Code</a> 
+                        <br>
+                    </div>                     
+                    <div class="col">
+                        <b style="font-weight:bold">Contact</b> 
+                        <br>
+                        <br>
+                        alga@gmail.im 
+                        <br>
+                        Support Chat
+                    </div>
+                    <div class="col">
+                        <b style="font-weight:bold">Resource</b> 
+                        <br>
+                        <br . fees <br>
+                        Developer 
+                        <br>
+                        Help Center 
+                        <br>
+                        Tokenlon Leaderboard
+                    </div>
+                    <div class="col">
+                        <b style="font-weight:bold">Social</b> 
+                        <br>
+                        <br>
+                        Telegram
+                        <br>
+                        Twitter
+                        <br>
+                        Medium 
+                        <br>
+                        Discord
+                    </div>
+                    <div class="col">
+                        <b style="font-weight:bold">Links</b> 
+                        <br>
+                        <br>
+                        Tronscan 
+                        <br>
+                        Dapprader
+                        <br>
+                        Daaps.com
+                        <br>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+    </body>
+    <script src="js/tron.js"></script>
+</html>
