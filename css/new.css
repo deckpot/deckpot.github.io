@@ -18,6 +18,9 @@ body {
     padding: 20px;
     z-index: 700;
 }
+span{
+    cursor:pointer;
+}
 
 .py-3 {
     height: 85vh;
